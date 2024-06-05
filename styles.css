@@ -1,0 +1,52 @@
+body{
+    background-color: rgba(233, 220, 44, 0.089);
+}
+h1{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.usuarios{
+    width: 250px;
+    border: 2px solid black;
+    padding-left: 5px;
+    background-color: white;
+    border-radius: 10px;
+    padding-right: 5px;
+}
+.botones{
+    padding-top: 5px;
+    border-top: 2px solid black;
+    text-align: center;
+    padding-bottom: 5px;
+}
+button{
+    background-color: rgba(104, 223, 223, 0.281);
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 7px;
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+
+
+
+/*#tabla{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    padding: 3px;
+    border-radius: 7px;
+    background-color: white;
+}
+th{
+    border: 1px solid black;
+    background-color: rgba(30, 255, 98, 0.062);
+}
+span{
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+*/
