@@ -16,15 +16,15 @@ fetch(apiURL)
                 <h4><span>Number phone:</span> ${user.phone}</h4>
                 <h4><span>Website:</span> ${user.website}</h4>
                 <div class="botones">
-                    <button type="button" class="btn btn-primary">Albums</button>
-                    <button type="button" class="btn btn-secondary">Posts</button>
-                    <button type="button" class="btn btn-success">ToDos</button>
+                    <a href="vistas/albums.html?userId=${user.id}">ALBUMS</a>
+                    <a href="vistas/posts.html?userId=${user.id}">POST</a>
+                    <a href="vistas/todos.html?userId=${user.id}">TODOS</a>
                 </div>
             `;
 
             usuariosContainer.appendChild(userDiv);
         });
-    })
-    .catch(error => {
-        console.error('Error fetching users:', error);
     });
+
+
+   

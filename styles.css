@@ -10,7 +10,7 @@ h1{
 .usuarios{
     display: grid;
     grid-template-columns: repeat(auto-fit,
-    minmax(250px, 1fr));
+    minmax(350px, 1fr));
     gap: 20px;
    
 }
@@ -23,9 +23,10 @@ h1{
     background-color: rgba(231, 229, 229, 0.082);
     border-radius: 60px;
 }
-button{
-    background-color: rgba(0, 0, 0, 0.959);
+a{
+    background-color: black;
     color: white;
+    width: 150px;
     padding: 3px;
     padding-left: 10px;
     padding-right: 10px;
@@ -33,6 +34,7 @@ button{
     border: 1.8px solid rgba(0, 139, 139, 0.356);
     font-weight: bold;
     font-size: 0.8rem;
+    text-decoration: none;
 }
 span{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -52,8 +54,6 @@ h4{
     border-top-right-radius: 20px;
     width: 100%;
 }
-
-/* Usuarios en fila*/
 .user{
     margin: auto;
     padding-top: 10px;
