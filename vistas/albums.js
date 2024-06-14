@@ -13,7 +13,7 @@ fetch(`https://jsonplaceholder.typicode.com/albums?userId=${userId}`)
             albumTitle.dataset.albumId = album.id;
 
             albumTitle.innerHTML = `
-                <h4 class="card-title">${album.title}</h4>
+                <h4 "class="badge text-bg-dark"">${album.title}</h4>
             `;
             albumTitle.addEventListener('click', function() {
                 const albumId = this.dataset.albumId;
