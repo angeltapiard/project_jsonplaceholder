@@ -5,6 +5,7 @@ const usuariosContainer = document.querySelector('.usuarios');
 fetch(apiURL)
     .then(response => response.json())
     .then(users => {
+        
         users.slice(0, 10).forEach(user => {
             const userDiv = document.createElement('div');
             userDiv.classList.add('user');

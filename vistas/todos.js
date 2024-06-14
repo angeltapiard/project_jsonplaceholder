@@ -7,11 +7,10 @@ fetch(`https://jsonplaceholder.typicode.com/todos?userId=${userId}`)
     .then(todos => {
         todos.forEach(todo => {
             const todoDiv = document.createElement('div');
-            todoDiv.classList.add('todo');
             todoDiv.classList.add('todo', 'card','mb-3', 'p-3', todo.completed ? 'true' : 'false');
 
             todoDiv.innerHTML = `
-                <h4 class="color"><hr>Title: ${todo.title} <hr>Completed: ${todo.completed}<hr></h4>
+                <h5 class="color"><hr>Title: ${todo.title} <hr>Completed: ${todo.completed}<hr></h6>
             `;
 
             todosContainer.appendChild(todoDiv);

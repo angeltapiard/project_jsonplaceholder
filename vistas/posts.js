@@ -8,7 +8,7 @@ fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
         posts.forEach(post => {
             const postDiv = document.createElement('div');
             postDiv.innerHTML = `
-                <h4 class="card-title" data-postid="${post.id}" style="cursor: pointer;">${post.title}</h4>
+                <h4 class="card-title card" data-postid="${post.id}" style="cursor: pointer;">${post.title}</h4>
                 <p class="card-text">${post.body}</p>
                 <ul class="comments-list" style="display: none;"></ul> <!-- Container for comments -->
             `;
