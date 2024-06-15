@@ -1,45 +1,52 @@
 const urlParams = new URLSearchParams(window.location.search);
 const userId = urlParams.get('userId');
 const albumsContainer = document.querySelector('.albums');
-const photosContainer = document.querySelector('.photos');
-const photosModal = new bootstrap.Modal(document.getElementById('photosModal'));
 
 fetch(`https://jsonplaceholder.typicode.com/albums?userId=${userId}`)
     .then(response => response.json())
     .then(albums => {
-        albums.forEach(album => {
-            const albumTitle = document.createElement('div');
-            albumTitle.classList.add('album-title', 'card', 'mb-3', 'p-3');
-            albumTitle.dataset.albumId = album.id;
-
-            albumTitle.innerHTML = `
-                <h4 "class="badge text-bg-dark"">${album.title}</h4>
+        let albumCards = '';
+        albums.forEach((album, index) => {
+            albumCards += `
+                <div class="col mb-4">
+                    <div class="card h-100 album-card" data-bs-toggle="modal" data-bs-target="#photosModal" data-album-id="${album.id}">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">${album.title}</h5>
+                        </div>
+                    </div>
+                </div>
             `;
-            albumTitle.addEventListener('click', function() {
+        });
+
+        albumsContainer.innerHTML = albumCards;
+
+        document.querySelectorAll('.album-card[data-album-id]').forEach(card => {
+            card.addEventListener('click', function() {
                 const albumId = this.dataset.albumId;
                 fetchAlbumPhotos(albumId);
             });
-
-            albumsContainer.appendChild(albumTitle);
         });
-    })
+    });
 
 function fetchAlbumPhotos(albumId) {
-    photosContainer.innerHTML = ''; 
+    const photosContainer = document.querySelector('.photos');
+    photosContainer.innerHTML = '';
+
     fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`)
         .then(response => response.json())
         .then(photos => {
+            let photoItems = '';
             photos.forEach((photo, index) => {
-                const photoDiv = document.createElement('div');
-                photoDiv.classList.add('photo-item', 'col-lg-2', 'col-md-3', 'col-sm-4', 'col-6');
-
-                photoDiv.innerHTML = `
-                    <img src="${photo.thumbnailUrl}" alt="${photo.title}" data-bs-toggle="tooltip" title="${photo.title}">
+                photoItems += `
+                    <div class="col mb-4">
+                        <div class="card h-100">
+                            <img src="${photo.thumbnailUrl}" class="card-img-top" alt="${photo.title}">
+                        </div>
+                    </div>
                 `;
-
-                photosContainer.appendChild(photoDiv);
             });
 
-            photosModal.show();
-        })
+            photosContainer.innerHTML = photoItems;
+            $('#photosModal').modal('show');
+        });
 }

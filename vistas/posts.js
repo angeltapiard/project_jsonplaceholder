@@ -7,10 +7,16 @@ fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
     .then(posts => {
         posts.forEach(post => {
             const postDiv = document.createElement('div');
+            postDiv.className = 'mb-4';
+
             postDiv.innerHTML = `
-                <h4 class="card-title card" data-postid="${post.id}" style="cursor: pointer;">${post.title}</h4>
-                <p class="card-text">${post.body}</p>
-                <ul class="comments-list" style="display: none;"></ul> <!-- Container for comments -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" data-postid="${post.id}" style="cursor: pointer;">${post.title}</h5>
+                        <p class="card-text">${post.body}</p>
+                        <ul class="comments-list list-group list-group-flush" style="display: none;"></ul>
+                    </div>
+                </div>
             `;
             postsContainer.appendChild(postDiv);
 
@@ -29,6 +35,7 @@ fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
                             .then(comments => {
                                 comments.forEach(comment => {
                                     const commentItem = document.createElement('li');
+                                    commentItem.className = 'list-group-item';
                                     commentItem.innerHTML = `<strong>${comment.email}:</strong> ${comment.body}`;
                                     commentsList.appendChild(commentItem);
                                 });
