@@ -6,7 +6,7 @@ fetch(`https://jsonplaceholder.typicode.com/albums?userId=${userId}`)
     .then(response => response.json())
     .then(albums => {
         let albumCards = '';
-        albums.forEach((album, index) => {
+        albums.map((album, index) => {
             albumCards += `
                 <div class="col mb-4">
                     <div class="card h-100 album-card" data-bs-toggle="modal" data-bs-target="#photosModal" data-album-id="${album.id}">

@@ -5,7 +5,7 @@ const postsContainer = document.querySelector('.posts');
 fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
     .then(response => response.json())
     .then(posts => {
-        posts.forEach(post => {
+        posts.map(post => {
             const postDiv = document.createElement('div');
             postDiv.className = 'mb-4';
 
